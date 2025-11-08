@@ -23,6 +23,21 @@ BUILTIN_MANIFEST: Dict[str, str] = {
 EIP1967_IMPL_SLOT = Web3.to_int(
     hexstr="0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc"
 )
+import time  # already at top-level imports if not present
+
+def main() -> None:
+    start_time = time.time()   # <--- add here
+    ...
+    # your existing logic
+    ...
+    if not args.quiet:
+        if all_ok:
+            print("🎯 Soundness verified for all targets (no mismatches).")
+        else:
+            print("🚨 Soundness check failed (one or more mismatches).")
+
+    duration = time.time() - start_time   # <--- add here
+    print(f"⏱️ Completed in {duration:.2f}s")
 
 def load_manifest(path: Optional[str]) -> Dict[str, str]:
     if not path:
