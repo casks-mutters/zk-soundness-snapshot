@@ -38,6 +38,18 @@ Select a specific block tag or number:
    python app.py --manifest manifest.json --block finalized
    python app.py --manifest manifest.json --block safe
    python app.py --manifest manifest.json --block 21000000
+   
+   Arguments
+--rpc       EVM RPC URL (default from RPC_URL environment)
+--manifest  Path to JSON manifest mapping address -> expected_hash or 'keccak'
+--address   Single contract address to check (overrides manifest)
+--expected  Expected 0x-hash for --address; if omitted, prints only the computed hash
+--block     Block tag or number (e.g., latest, safe, finalized, or a number). Default: finalized
+--timeout   HTTP timeout in seconds (default: 30)
+--concurrency  Max parallel requests (default: up to 8)
+--follow-proxy Follow EIP-1967 proxy to implementation before hashing
+--json      Print a JSON summary to stdout
+--quiet, -q Suppress normal output; only mismatches and errors are printed
 
 # Manifest format
 A JSON object mapping each contract address to either:
